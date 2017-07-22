@@ -1,17 +1,17 @@
 # Alexa-Skills
 
-##MIT Skills
+## MIT Skills
 
-####MIT People
+#### MIT People
 
-####MIT Classes
+#### MIT Classes
 
-####MIT Dining
+#### MIT Dining
 
-##Random Skills
+## Random Skills
 
-####Yoda Speak
+#### Yoda Speak
 
-####Phone Locator
+#### Phone Locator
 
-####Top of Hacker News
+#### Top of Hacker News
