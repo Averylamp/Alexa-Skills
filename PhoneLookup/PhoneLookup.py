@@ -72,11 +72,11 @@ def handleLookupIntent(intent, old_session):
     print(intent['slots']['PhoneNumber'])
     phrase = intent['slots']['PhoneNumber']
     fullNumber = 5
-    if 'value' in phrase and phrase.get("value","") != "" and phrase.get("value","")  is not None :
+    if 'value' in phrase and phrase.get("value","") != "" and phrase.get("value","")  is not None and phrase.get("value","")  != '?' :
       fullNumber = int(phrase['value'])
       print("Full Phrase - {}".format(fullNumber))
     else:
-      output = "There was no phone number located."
+      output = "There was no phone number located.  To try again, say look up... then a phone number.  Or say close to end session."
       should_end_session = False
       return build_response(session, build_speechlet_response("No Number Detected", output, output, should_end_session))
     lookup_results = lookupNumber(fullNumber)
@@ -101,8 +101,12 @@ def lookupNumber(number):
   if citylocation != "":
     output += "the city of " + citylocation + ", "
   if countylocation != "":
+    if output == "":
+        output = "The phone was found "
     output += "in " + countylocation +  " county" + ", "
   if statelocation != "":
+    if output == "":
+        output = "The phone was found "
     output += "in the state of " + statelocation + "."
   if output == "":
     output = "The location for the number {} could not be found.".format(number)
